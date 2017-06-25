@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Meld</name>
+    </assembly>
+    <members>
+        <member name="T:Meld.IScriptManager">
+            <summary>
+            Exposes the public members of a script manager.
+            </summary>
+        </member>
+        <member name="M:Meld.IScriptManager.GetSqlScripts(System.String)">
+            <summary>
+            Gets the SQL scripts.
+            </summary>
+            <param name="databaseName">Name of the database.</param>
+            <returns>The SQL scripts.</returns>
+        </member>
+        <member name="M:Meld.IScriptManager.ThrowMissingScriptException(System.String)">
+            <summary>
+            Throws a missing script exception.
+            </summary>
+            <param name="message">The exception message.</param>
+        </member>
+        <member name="T:Meld.ManifestResourceScriptManager">
+            <summary>
+            Represents the manifest resource script manager.
+            </summary>
+            <seealso cref="T:Meld.IScriptManager" />
+        </member>
+        <member name="M:Meld.ManifestResourceScriptManager.GetSqlScripts(System.String)">
+            <summary>
+            Gets the SQL scripts.
+            </summary>
+            <param name="databaseName">Name of the database.</param>
+            <returns>The SQL scripts.</returns>
+        </member>
+        <member name="M:Meld.ManifestResourceScriptManager.ThrowMissingScriptException(System.String)">
+            <summary>
+            Throws a missing script exception.
+            </summary>
+            <param name="message">The exception message.</param>
+            <exception cref="T:System.Resources.MissingManifestResourceException">Thrown when invoked.</exception>
+        </member>
+        <member name="T:Meld.SqlScript">
+            <summary>
+            Represents a SQL script.
+            </summary>
+        </member>
+        <member name="M:Meld.SqlScript.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Meld.SqlScript"/> class.
+            </summary>
+            <param name="version">The version.</param>
+            <param name="description">The description.</param>
+            <param name="sqlScript">The SQL script.</param>
+        </member>
+        <member name="M:Meld.SqlScript.#ctor(System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Meld.SqlScript"/> class.
+            </summary>
+            <param name="version">The version.</param>
+            <param name="description">The description.</param>
+            <param name="sqlBatches">The SQL batches.</param>
+        </member>
+        <member name="P:Meld.SqlScript.Version">
+            <summary>
+            Gets the version for the script.
+            </summary>
+            <value>The version.</value>
+        </member>
+        <member name="P:Meld.SqlScript.Description">
+            <summary>
+            Gets the description for the script.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Meld.SqlScript.SupportedInTransaction">
+            <summary>
+            Gets a value indicating whether this script is supported in a transaction.
+            </summary>
+            <value>Returns <c>true</c> if the script is supported in a transaction; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Meld.SqlScript.GetSqlBatches(System.String,System.String,System.String)">
+            <summary>
+            Gets the SQL batches.
+            </summary>
+            <param name="databaseName">Name of the database.</param>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="serverVersion">The server version.</param>
+            <returns>The SQL batches.</returns>
+        </member>
+        <member name="T:Meld.Version">
+            <summary>
+            Represents a version.
+            </summary>
+        </member>
+        <member name="M:Meld.Version.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Meld.Version"/> class.
+            </summary>
+        </member>
+        <member name="P:Meld.Version.Number">
+            <summary>
+            Gets the version number.
+            </summary>
+            <value>The version number.</value>
+        </member>
+        <member name="M:Meld.Version.Apply(System.Collections.Generic.IEnumerable{Meld.SqlScript})">
+            <summary>
+            Applies the specified SQL scripts.
+            </summary>
+            <param name="sqlScripts">The SQL scripts.</param>
+        </member>
+        <member name="M:Meld.Version.GetSqlScripts">
+            <summary>
+            Gets the SQL scripts.
+            </summary>
+            <returns>The SQL scripts.</returns>
+        </member>
+        <member name="T:Guard">
+            <summary>
+            The <see cref="T:Guard"/> clause.
+            </summary>
+        </member>
+        <member name="P:Guard.Against">
+            <summary>
+            Provides instance and extension methods for the <see cref="T:Guard"/> clause.
+            </summary>
+            <value>The <see cref="T:Guard"/> clause extensibility endpoint.</value>
+        </member>
+        <member name="M:Guard.Null``1(System.Func{``0})">
+            <summary>
+            Guard against null argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:Guard.Null``1(System.Func{System.Nullable{``0}})">
+            <summary>
+            Guard against null argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="T:Guard.Expression">
+            <summary>
+            Provides expression helper methods for the <see cref="T:Guard"/> clause.
+            </summary>
+        </member>
+        <member name="M:Guard.Expression.Parse``1(System.Func{``0})">
+            <summary>
+            Converts the specified expression to its string representation.
+            </summary>
+            <typeparam name="T">The expression type.</typeparam>
+            <param name="expression">The expression.</param>
+            <returns>The string representation of the specified expression.</returns>
+        </member>
+        <member name="T:GuardExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:Guard"/> clause.
+            </summary>
+        </member>
+        <member name="M:GuardExtensions.Null``1(Guard,``0,System.String)">
+            <summary>
+            Guard against null argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The guard clause.</param>
+            <param name="value">The value to guard against.</param>
+            <param name="parameterName">Name of the parameter.</param>
+        </member>
+        <member name="M:GuardExtensions.Null``1(Guard,``0,System.String,System.String)">
+            <summary>
+            Guard against null argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The guard clause.</param>
+            <param name="value">The value to guard against.</param>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:GuardExtensions.Null``1(Guard,System.Nullable{``0},System.String)">
+            <summary>
+            Guard against null argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The guard clause.</param>
+            <param name="value">The value to guard against.</param>
+            <param name="parameterName">Name of the parameter.</param>
+        </member>
+        <member name="M:GuardExtensions.Null``1(Guard,System.Nullable{``0},System.String,System.String)">
+            <summary>
+            Guard against null argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The guard clause.</param>
+            <param name="value">The value to guard against.</param>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:GuardExtensions.NullOrEmpty``1(Guard,System.Func{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Guard against null or empty argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.NullOrEmpty``1(Guard,System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Guard against null or empty argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The Guard clause.</param>
+            <param name="value">The value to guard against.</param>
+            <param name="parameterName">Name of the parameter.</param>
+        </member>
+        <member name="M:GuardExtensions.NullOrEmptyOrNullElements``1(Guard,System.Func{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Guard against null or empty or null elements argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.NullOrEmptyOrNullElements``1(Guard,System.Func{System.Collections.Generic.IEnumerable{System.Nullable{``0}}})">
+            <summary>
+            Guard against null or empty or null elements argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.NullOrEmptyOrNullElements``1(Guard,System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Guard against null or empty or null elements argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The Guard clause.</param>
+            <param name="value">The value to guard against.</param>
+            <param name="parameterName">Name of the parameter.</param>
+        </member>
+        <member name="M:GuardExtensions.NullOrEmptyOrNullElements``1(Guard,System.Collections.Generic.IEnumerable{System.Nullable{``0}},System.String)">
+            <summary>
+            Guard against null or empty or null elements argument values.
+            </summary>
+            <typeparam name="T">The type of value to guard against.</typeparam>
+            <param name="guard">The Guard clause.</param>
+            <param name="value">The value to guard against.</param>
+            <param name="parameterName">Name of the parameter.</param>
+        </member>
+        <member name="M:GuardExtensions.Positive(Guard,System.Func{System.Int32})">
+            <summary>
+            Guard against positive argument values.
+            </summary>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.PositiveOrZero(Guard,System.Func{System.Int32})">
+            <summary>
+            Guard against positive or zero argument values.
+            </summary>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.Positive(Guard,System.Func{System.Int64})">
+            <summary>
+            Guard against positive argument values.
+            </summary>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.PositiveOrZero(Guard,System.Func{System.Int64})">
+            <summary>
+            Guard against positive or zero argument values.
+            </summary>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.Negative(Guard,System.Func{System.Int32})">
+            <summary>
+            Guard against negative argument values.
+            </summary>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.NegativeOrZero(Guard,System.Func{System.Int32})">
+            <summary>
+            Guard against negative or zero argument values.
+            </summary>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.Negative(Guard,System.Func{System.Int64})">
+            <summary>
+            Guard against negative argument values.
+            </summary>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="M:GuardExtensions.NegativeOrZero(Guard,System.Func{System.Int64})">
+            <summary>
+            Guard against negative or zero argument values.
+            </summary>
+            <param name="guard">The guard clause.</param>
+            <param name="expression">An expression returning the value to guard against.</param>
+        </member>
+        <member name="T:System.Data.SqlClient.SqlConnectionExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:System.Data.SqlClient.SqlConnection"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InitializeSchema(System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Initializes the database schema.
+            </summary>
+            <param name="connection">The connection.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InitializeSchema(System.Data.SqlClient.SqlConnection,System.String)">
+            <summary>
+            Initializes the database schema for the specified schema name.
+            </summary>
+            <param name="connection">The connection.</param>
+            <param name="schemaName">Name of the schema.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InitializeSchema(System.Data.SqlClient.SqlConnection,System.Type)">
+            <summary>
+            Initializes the database schema for the specified type.
+            </summary>
+            <param name="connection">The connection.</param>
+            <param name="type">The type supported by the database schema.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InitializeSchema(System.Data.SqlClient.SqlConnection,System.String,System.Type)">
+            <summary>
+            Initializes the database schema for the specified schema name and type.
+            </summary>
+            <param name="connection">The connection.</param>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="type">The type supported by the database schema.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.InitializeSchema(System.Data.SqlClient.SqlConnection,System.String,System.String)">
+            <summary>
+            Initializes the database schema for the specified schema name and database name.
+            </summary>
+            <param name="connection">The connection.</param>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="databaseName">Name of the database.</param>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.WithInitializedSchema(System.Data.SqlClient.SqlConnection)">
+            <summary>
+            Initializes the database schema.
+            </summary>
+            <param name="connection">The connection.</param>
+            <returns>The initialized connection.</returns>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.WithInitializedSchema(System.Data.SqlClient.SqlConnection,System.String)">
+            <summary>
+            Initializes the database schema for the specified schema name.
+            </summary>
+            <param name="connection">The connection.</param>
+            <param name="schemaName">Name of the schema.</param>
+            <returns>The initialized connection.</returns>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.WithInitializedSchema(System.Data.SqlClient.SqlConnection,System.Type)">
+            <summary>
+            Initializes the database schema for the specified type.
+            </summary>
+            <param name="connection">The connection.</param>
+            <param name="type">The type supported by the database schema.</param>
+            <returns>The initialized connection.</returns>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.WithInitializedSchema(System.Data.SqlClient.SqlConnection,System.String,System.Type)">
+            <summary>
+            Initializes the database schema for the specified schema name and type.
+            </summary>
+            <param name="connection">The connection.</param>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="type">The type.</param>
+            <returns>The initialized connection.</returns>
+        </member>
+        <member name="M:System.Data.SqlClient.SqlConnectionExtensions.WithInitializedSchema(System.Data.SqlClient.SqlConnection,System.String,System.String)">
+            <summary>
+            Initializes the database schema for the specified schema name and database name.
+            </summary>
+            <param name="connection">The connection.</param>
+            <param name="schemaName">Name of the schema.</param>
+            <param name="databaseName">Name of the database.</param>
+            <returns>The initialized connection.</returns>
+        </member>
+    </members>
+</doc>
