@@ -2,12 +2,18 @@
 {
     using Xunit;
 
-    // LINK (Cameron): http://xunit.github.io/docs/shared-context.html
+    /*  LINK (Cameron): http://xunit.github.io/docs/shared-context.html
+        These classes have no code, and are never created. Their purpose is simply
+        to be the place to apply [CollectionDefinition] and all the
+        ICollectionFixture<> interfaces.  */
+
     [CollectionDefinition("SQL Server Collection")]
     public class DatabaseCollection : ICollectionFixture<SqlServerFixture>
     {
-        // This class has no code, and is never created. Its purpose is simply
-        // to be the place to apply [CollectionDefinition] and all the
-        // ICollectionFixture<> interfaces.
+    }
+
+    [CollectionDefinition("Web API Collection")]
+    public class WebApiCollection : ICollectionFixture<WebApiFixture>
+    {
     }
 }

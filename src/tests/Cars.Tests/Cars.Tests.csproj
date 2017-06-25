@@ -33,12 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Feature\ScrappingCar.cs" />
-    <Compile Include="Feature\DrivingCar.cs" />
+    <Compile Include="Feature\LifecyclingACarInTheSystem.cs" />
+    <Compile Include="Feature\RecordingDistanceTravelled.cs" />
     <Compile Include="Integration\CarRepositoryTests.cs" />
     <Compile Include="Sdk\DatabaseCollection.cs" />
     <Compile Include="Sdk\Integration.cs" />
     <Compile Include="Sdk\SqlServerFixture.cs" />
+    <Compile Include="Sdk\WebApiFixture.cs" />
     <Compile Include="Unit\CarTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,13 +97,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Cars.WebApi\Cars.csproj">
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cars\Cars.csproj">
       <Project>{d5112ad8-712e-4b11-99c7-3392054209f5}</Project>
       <Name>Cars</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

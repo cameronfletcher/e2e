@@ -6,22 +6,27 @@
 
     public static class Integration
     {
-        public class Database : IClassFixture<SqlServerFixture>
+        public abstract class Database : IClassFixture<SqlServerFixture>
         {
-            public Database(SqlServerFixture fixture)
+            protected Database(SqlServerFixture fixture)
             {
                 this.ConnectionString = fixture.ConnectionString.Replace("=master;", string.Concat("=", fixture.DatabaseName, ";"));
             }
 
-            public string ConnectionString { get; set; }
+            protected string ConnectionString { get; set; }
 
-            public void ExecuteScript(string sqlScript)
+            protected void ExecuteScript(string sqlScript)
             {
                 using (var connection = new SqlConnection(this.ConnectionString))
                 {
                     new ServerConnection(connection).ExecuteNonQuery(sqlScript);
                 }
             }
+        }
+
+        public abstract class WebApi
+        {
+
         }
     }
 }

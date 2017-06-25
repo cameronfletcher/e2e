@@ -820,7 +820,7 @@
     <Rule Id="IDE1006WithoutSuggestion" Action="Error" />
   </Rules>
   <Rules AnalyzerId="Microsoft.CodeAnalysis.Features" RuleNamespace="Microsoft.CodeAnalysis.Features">
-    <Rule Id="IDE0010" Action="Error" />
+    <Rule Id="IDE0010" Action="None" />
     <Rule Id="IDE0010WithoutSuggestion" Action="Error" />
     <Rule Id="IDE0033" Action="Error" />
     <Rule Id="IDE0033WithoutSuggestion" Action="Error" />
@@ -1255,7 +1255,7 @@
     <Rule Id="S3990" Action="Error" />
     <Rule Id="S3992" Action="Error" />
     <Rule Id="S3993" Action="Error" />
-    <Rule Id="S3994" Action="Error" />
+    <Rule Id="S3994" Action="Warning" />
     <Rule Id="S3995" Action="Error" />
     <Rule Id="S3996" Action="Error" />
     <Rule Id="S3997" Action="Error" />

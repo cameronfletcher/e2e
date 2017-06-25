@@ -10,3 +10,6 @@ The Microsoft.SqlSever.SqlClrProvider can be installed by running the following 
 - ENU\x64\SQLSysClrTypes.msi
 - ENU\x64\SharedManagementObjects.msi
 
+
+
+netsh http add urlacl url=http://+:80/cars/api user=everyone
