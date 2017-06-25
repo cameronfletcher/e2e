@@ -4,6 +4,7 @@
     using Cars.Persistence;
     using Cars.Persistence.SqlServer;
     using Cars.WebApi;
+    using log4net;
     using Newtonsoft.Json;
 
     internal static class ContainerFactory
@@ -16,7 +17,8 @@
             builder.Register(context => new CarRepository(connectionString)).As<ICarRepository>().SingleInstance();
             builder.Register(context => new NancyWebApi(apiUrl, new CustomNancyBootstrapper(context.Resolve<ILifetimeScope>()))).AsSelf().SingleInstance();
             builder.RegisterType<CustomJsonSerializer>().As<JsonSerializer>();
-            builder.RegisterInstance(typeof(ContainerFactory).Assembly);
+            ////builder.RegisterInstance(typeof(ContainerFactory).Assembly);
+            builder.Register(context => LogManager.GetLogger(typeof(CustomNancyBootstrapper)));
 
             return builder.Build();
         }

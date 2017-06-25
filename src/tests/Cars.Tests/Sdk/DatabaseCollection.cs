@@ -11,9 +11,4 @@
     public class DatabaseCollection : ICollectionFixture<SqlServerFixture>
     {
     }
-
-    [CollectionDefinition("Web API Collection")]
-    public class WebApiCollection : ICollectionFixture<WebApiFixture>
-    {
-    }
 }

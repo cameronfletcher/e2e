@@ -1,5 +1,6 @@
 ﻿namespace Cars.Tests.Sdk
 {
+    using System;
     using System.Data.SqlClient;
     using Microsoft.SqlServer.Management.Common;
     using Xunit;
@@ -22,11 +23,6 @@
                     new ServerConnection(connection).ExecuteNonQuery(sqlScript);
                 }
             }
-        }
-
-        public abstract class WebApi
-        {
-
         }
     }
 }

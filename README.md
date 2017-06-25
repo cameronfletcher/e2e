@@ -1,15 +1,11 @@
 e2e
 ===
-
 An example end-to-end simple data entry system.
 
+### Building
+You'll need Visual Studio 2017 installed. It should build within the IDE out of the box.
 
 
-
-The Microsoft.SqlSever.SqlClrProvider can be installed by running the following MSIs which are available form the following Microsoft download link: https://www.microsoft.com/en-us/download/details.aspx?id=52676:
-- ENU\x64\SQLSysClrTypes.msi
-- ENU\x64\SharedManagementObjects.msi
-
-
-
-netsh http add urlacl url=http://+:80/cars/api user=everyone
+### Running
+This requires the following URL namespace reservation to have been made if not running with elevated access rights:
+```netsh http add urlacl url=http://+:80/e2e/cars/ user=everyone```.

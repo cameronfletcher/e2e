@@ -43,7 +43,7 @@
             await repository.Save(car);
 
             // assert
-            await Assert.ThrowsAsync<PersistenceException>(async () => await repository.Load(car.Registration));
+            await Assert.ThrowsAsync<AggregateRootNotFoundException>(async () => await repository.Load(car.Registration));
         }
 
         [Fact]
@@ -78,7 +78,7 @@
             await repository.Save(car);
 
             // assert
-            await Assert.ThrowsAsync<PersistenceException>(async () => await repository.Load(car.Registration));
+            await Assert.ThrowsAsync<AggregateRootNotFoundException>(async () => await repository.Load(car.Registration));
         }
 
         [Fact]
@@ -96,7 +96,7 @@
             await repository.Save(car);
 
             // assert
-            await Assert.ThrowsAsync<PersistenceException>(async () => await repository.Save(originalCar));
+            await Assert.ThrowsAsync<ConcurrencyException>(async () => await repository.Save(originalCar));
         }
 
         [Fact]
@@ -114,7 +114,7 @@
             await repository.Save(car);
 
             // assert
-            await Assert.ThrowsAsync<PersistenceException>(async () => await repository.Save(originalCar));
+            await Assert.ThrowsAsync<ConcurrencyException>(async () => await repository.Save(originalCar));
         }
 
         [Fact]
@@ -129,7 +129,7 @@
             await repository.Save(car);
 
             // assert
-            await Assert.ThrowsAsync<PersistenceException>(async () => await repository.Save(sameCar));
+            await Assert.ThrowsAsync<ConcurrencyException>(async () => await repository.Save(sameCar));
         }
     }
 }
