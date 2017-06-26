@@ -1,46 +1,42 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Your page title here :)</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <title>Cars</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/e2e/css/normalize.css">
+  <link rel="stylesheet" href="/e2e/css/skeleton.css">
+  <link rel="stylesheet" href="/e2e/css/custom.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/e2e/js/site.js"></script>
+  <link rel="icon" type="image/png" href="dist/images/favicon.png">
 </head>
-<body>
-
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<body class="code-snippets-visible">
   <div class="container">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+    <section class="header">
+      <h2 class="title">A trivial end-to-end web solution.</h2>
+      <a class="button button-primary" href="/e2e/cars">Get Started</a>
+      <div class="value-props row">
+        <div class="four columns value-prop">
+          <img class="value-img" src="/e2e/images/nancy.png" width="130">
+          Written in C# and using Nancy running on ASP.NET.
+        </div>
+        <div class="four columns value-prop">
+          <img class="value-img" src="/e2e/images/skeleton.jpg" width="130">
+          Uses Skeleton; a dead simple, responsive boilerplate.
+        </div>
+        <div class="four columns value-prop">
+          <img class="value-img" src="/e2e/images/sqlserver.png" width="110" style="padding: 10px;">
+          Uses Microsoft SQL Server for persistence.
+        </div>
       </div>
+    </section>
+    <div class="docs-section" id="intro">
+      <h6 class="docs-header">What could this be used for?</h6>
+      <p>Not a lot.</p>
+      <p>This is a demonstration of different web and persistence technologies working together. Specifically, this solution incorporates a static web-based front-end UI which communicates with an HTTP web service running in a stand-alone OWIN host that may be installed as a Windows service.</p>
     </div>
   </div>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>

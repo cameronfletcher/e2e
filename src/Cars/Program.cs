@@ -1,4 +1,4 @@
-﻿namespace Cars.WebApi
+﻿namespace Cars
 {
     using System;
     using System.Configuration;
@@ -6,6 +6,7 @@
     using System.Reflection;
     using System.Runtime.ExceptionServices;
     using Autofac;
+    using Cars.WebApi;
     using Topshelf;
 
     public static class Program

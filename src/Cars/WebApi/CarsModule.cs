@@ -11,7 +11,7 @@
     public sealed class CarsModule : NancyModule
     {
         public CarsModule(ICarRepository repoisitory)
-            : base("cars")
+            : base("api/cars")
         {
             Guard.Against.Null(() => repoisitory);
 
@@ -45,7 +45,7 @@
                 return new
                 {
                     Url = new Uri(this.Request.Url).Sanitize().ToString(),
-                    CarsUrl = new Uri(this.Request.Url.SiteBase).Combine(this.Request.Url.BasePath, "cars").ToString(),
+                    CarsUrl = new Uri(this.Request.Url.SiteBase).Combine(this.Request.Url.BasePath, "api/cars").ToString(),
                     car.Value.registration,
                     car.Value.totalDistanceTravelled,
                 };

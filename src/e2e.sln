@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{186386FA-3389-419B-82A5-E67F81A0741C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Website", "Cars.Website\Cars.Website.csproj", "{DFE51B00-374B-454D-8919-21D239B86BFD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cars.Tests", "tests\Cars.Tests\Cars.Tests.csproj", "{89AAD420-60BE-4928-85EC-33A1CD567EA7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{297D4412-B50E-484D-BC66-534B10F4A477}"
@@ -27,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFE51B00-374B-454D-8919-21D239B86BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFE51B00-374B-454D-8919-21D239B86BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFE51B00-374B-454D-8919-21D239B86BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFE51B00-374B-454D-8919-21D239B86BFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{89AAD420-60BE-4928-85EC-33A1CD567EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89AAD420-60BE-4928-85EC-33A1CD567EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89AAD420-60BE-4928-85EC-33A1CD567EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU

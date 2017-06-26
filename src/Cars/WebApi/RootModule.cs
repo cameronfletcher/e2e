@@ -8,6 +8,7 @@
     public sealed class RootModule : NancyModule
     {
         public RootModule()
+            : base("api")
         {
             this.Get["/"] = _ =>
             {

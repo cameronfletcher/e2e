@@ -7,6 +7,7 @@
     using Nancy;
     using Nancy.Bootstrapper;
     using Nancy.Bootstrappers.Autofac;
+    using Nancy.ModelBinding;
     using Nancy.Responses.Negotiation;
 
     [CLSCompliant(false)]
@@ -34,6 +35,10 @@
 
                 switch (ex)
                 {
+                    case ModelBindingException error:
+                        ctx.Items["handled_message_detail"] = $"Error whilst binding the JSON values: {ex.InnerException.Message}";
+                        return HttpStatusCode.BadRequest;
+
                     case BusinessException error:
                         return HttpStatusCode.BadRequest;
 
@@ -43,8 +48,9 @@
                     case AggregateRootNotFoundException error:
                         return HttpStatusCode.NotFound;
 
+                    // LINK (Cameron): https://github.com/NancyFx/Nancy/wiki/The-Application-Before,-After-and-OnError-pipelines
                     default:
-                        return HttpStatusCode.InternalServerError;
+                        return null;
                 }
             });
 

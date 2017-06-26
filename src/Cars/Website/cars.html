@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cars</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/e2e/css/normalize.css">
+  <link rel="stylesheet" href="/e2e/css/skeleton.css">
+  <link rel="stylesheet" href="/e2e/css/custom.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/e2e/js/site.js"></script>
+  <link rel="icon" type="image/png" href="dist/images/favicon.png">
+</head>
+<body class="code-snippets-visible">
+  <div class="container">
+    <section class="header">
+      <h2 class="title">A trivial end-to-end web solution.</h2>
+    </section>
+    <div class="docs-section" id="forms">
+      <h4 class="docs-header">Car Management</h4>
+      <p>From here you can register new cars or select a specific car to manage from a list of cars in the system.</p>
+      <div class="docs-example docs-example-forms">
+        <form>
+          <div class="row">
+            <div class="five columns">
+              <label for="carRegistration">Register a New Car</label>
+              <input class="u-full-width" type="text" placeholder="eg. ZG42911" id="carRegistration">
+            </div>
+            <div class="seven columns">
+              <input class="button-primary registration" type="submit" value="Register">
+            </div>
+          </div>
+        </form>
+        <p class="error">Error whilst binding the JSON values: Could not convert string to integer: abc. Path 'distance_travelled', line 1, position 27.</p>
+      </div>
+      <div class="docs-example">
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Registration</th>
+              <th>Total Distance Travelled</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/e2e/cars/M5">M5</a></td>
+              <td>107</td>
+            </tr>
+            <tr>
+              <td>GTR</td>
+              <td>82</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

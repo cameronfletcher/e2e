@@ -1,8 +1,12 @@
 ﻿namespace Cars.WebApi
 {
     using System;
+    using System.IO;
     using System.Reflection;
+    using Microsoft.Owin;
+    using Microsoft.Owin.FileSystems;
     using Microsoft.Owin.Hosting;
+    using Microsoft.Owin.StaticFiles;
     using Nancy.Bootstrapper;
     using Owin;
 
@@ -33,10 +37,19 @@
                 throw new InvalidOperationException($"The web API service has already running on '{this.apiUrl}'!");
             }
 
+            var staticContentPath = Path.Combine(Directory.GetCurrentDirectory(), "Website");
+
             this.host = WebApp.Start(
                 this.apiUrl,
                 app =>
                 {
+                    app.UseStaticFiles(
+                        new StaticFileOptions
+                        {
+                            FileSystem = new PhysicalFileSystem(staticContentPath),
+                            RequestPath = new PathString(string.Empty),
+                        });
+
                     app.UseNancy(o => o.Bootstrapper = this.bootstrapper);
                 });
 
