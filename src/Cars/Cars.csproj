@@ -127,6 +127,7 @@
     <Compile Include="WebApi\CustomJsonSerializer.cs" />
     <Compile Include="WebApi\CustomNancyBootstrapper.cs" />
     <Compile Include="WebApi\NancyWebApi.cs" />
+    <Compile Include="WebApi\RootModule.cs" />
     <Compile Include="WebApi\StatusCodeHandler.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -55,6 +55,6 @@
         }
 
 #pragma warning disable S4018
-        private static T GetFirstOrDefault<T>(this ICustomAttributeProvider provider) => provider.GetCustomAttributes(typeof(T), false).Cast<T>().FirstOrDefault();
+        internal static T GetFirstOrDefault<T>(this ICustomAttributeProvider provider) => provider.GetCustomAttributes(typeof(T), false).Cast<T>().FirstOrDefault();
     }
 }
