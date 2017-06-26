@@ -15,7 +15,7 @@
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         private static readonly HashSet<HttpStatusCode> HandledStatusCodes =
-            new HashSet<HttpStatusCode> { HttpStatusCode.InternalServerError, HttpStatusCode.NotFound, HttpStatusCode.BadRequest };
+            new HashSet<HttpStatusCode> { HttpStatusCode.InternalServerError, HttpStatusCode.NotFound, HttpStatusCode.BadRequest, HttpStatusCode.Conflict };
 
         private readonly ISerializer serializer;
 

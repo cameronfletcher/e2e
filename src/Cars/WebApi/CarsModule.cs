@@ -54,8 +54,14 @@
             this.Patch["/{Registration}/", runAsync: true] = async (paramaters, token) =>
             {
                 var body = this.Bind<Body>();
+                if (!body.DistanceTravelled.HasValue)
+                {
+                    this.Context.Items.Add("handled_message_detail", $"Cannot drive a car no distance.");
+                    return HttpStatusCode.BadRequest;
+                }
+
                 var car = await repoisitory.Load((string)paramaters.Registration);
-                car.Drive(body.DistanceTravelled);
+                car.Drive(body.DistanceTravelled.Value);
                 await repoisitory.Save(car);
                 return HttpStatusCode.OK;
             };
@@ -75,7 +81,7 @@
         {
             public string Registration { get; set; }
 
-            public int DistanceTravelled { get; set; }
+            public int? DistanceTravelled { get; set; }
         }
     }
 }

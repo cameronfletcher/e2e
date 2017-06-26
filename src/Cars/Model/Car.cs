@@ -21,6 +21,11 @@
         {
             Guard.Against.Null(() => registration);
 
+            if (registration.Length == 0)
+            {
+                throw new BusinessException("A car registration cannot be blank.");
+            }
+
             if (registration.Length > 50)
             {
                 throw new BusinessException("A car registration cannot exceed more than 50 characters in length.");

@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Cars</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/e2e/css/normalize.css">
-  <link rel="stylesheet" href="/e2e/css/skeleton.css">
-  <link rel="stylesheet" href="/e2e/css/custom.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <title>e2e</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A trivial end-to-end web solution." />
+  <link rel="icon" type="image/png" href="/e2e/images/favicon.png">
+  <link rel="stylesheet" href="/e2e/css/fonts.css" type='text/css' />
+  <link rel="stylesheet" href="/e2e/css/normalize.css" />
+  <link rel="stylesheet" href="/e2e/css/skeleton.css" />
+  <link rel="stylesheet" href="/e2e/css/custom.css" />
+  <script src="/e2e/js/vendors/jquery-3.2.1.min.js"></script>
+  <script src="/e2e/js/vendors/earl.js"></script>
   <script src="/e2e/js/site.js"></script>
-  <link rel="icon" type="image/png" href="dist/images/favicon.png">
+  <script src="/e2e/js/car.js"></script>
 </head>
 <body class="code-snippets-visible">
   <div class="container">
@@ -18,32 +21,31 @@
       <h2 class="title">A trivial end-to-end web solution.</h2>
     </section>
     <div class="docs-section" id="forms">
-      <h4 class="docs-header"><a href="/e2e/cars">Car Management</a> &gt; M5</h4>
-      <p>This car has travelled a total distance of <b>107</b>... light years?</p>
-      <div class="docs-example docs-example-forms">
+      <h4 class="docs-header"><a href="/e2e">Home</a> &gt; <a href="/e2e/cars">Car Management</a> &gt; <span id="registration"></span></h4>
+      <p>This car has travelled a total distance of <span id="distance" class="distance"></span>... light years?</p>
+      <p>From here you can manage all the aspects of this car that are allowed within the context of the system; which is basically incrementing the recorded trip distance in unknown units. Exciting stuff!</p>
+      <div class="zero-margin">
         <form>
           <div class="row">
             <div class="three columns">
               <label for="carDistance">Trip Distance</label>
-              <input class="u-full-width" type="text" placeholder="eg. 17" id="carDistance">
+              <input class="u-full-width" type="number" placeholder="eg. 17" id="carDistance" autocomplete="off" required>
             </div>
             <div class="nine columns">
-              <input class="button-primary registration" type="submit" value="Record">
+              <input class="button-primary registration" type="submit" value="Record" id="record">
             </div>
           </div>
         </form>
-        <p class="error">A car cannot be driven a negative distance.</p>
+        <p class="error" id="error"></p>
       </div>
-      <div class="docs-example docs-example-forms">
-        <form>
-          <div class="row">
-            <div class="eleven columns">
-              <label>Scrap this Car</label>
-              <p>Beware: this operation cannot be undone!</p>
-              <input class="button-primary danger" type="submit" value="Scrap">
-            </div>
+      <div class="zero-margin">
+        <div class="row">
+          <div class="eleven columns">
+            <label>Scrap this Car</label>
+            <p>Beware: this operation cannot be undone!</p>
+            <input class="button-primary danger" type="submit" value="Scrap" id="scrap">
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
