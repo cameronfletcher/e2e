@@ -1,1 +1,0 @@
-﻿Config for test and prod so tests run on different DB
