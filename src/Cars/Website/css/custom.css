@@ -77,10 +77,6 @@ input.touched:required:invalid, input.touched:focus:invalid {
 
 /* Larger than phone */
 @media (min-width: 550px) {
-    .header {
-        margin-top: 18rem;
-    }
-
     .value-props {
         margin-top: 0;
         margin-bottom: 7rem;
